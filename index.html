@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>codedamn Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- start writing your code -->
+    <div class="main">
+        <div class="calculator">
+            <input type="textbox" placholder="text" id="calcResultbox">
+            <div class="calcButtons">
+                <button class="calcBtn isAC" id="clearBtn">AC</button>
+                <button class="calcBtn" id="deleteBtn">DEL</button>
+                <button class="calcBtn NumsOps">/</button>
+                <button class="calcBtn NumsOps">1</button>
+                <button class="calcBtn NumsOps">2</button>
+                <button class="calcBtn NumsOps">3</button>
+                <button class="calcBtn NumsOps">*</button>
+                <button class="calcBtn NumsOps">4</button>
+                <button class="calcBtn NumsOps">5</button>
+                <button class="calcBtn NumsOps">6</button>
+                <button class="calcBtn NumsOps">+</button>
+                <button class="calcBtn NumsOps">7</button>
+                <button class="calcBtn NumsOps">8</button>
+                <button class="calcBtn NumsOps">9</button>
+                <button class="calcBtn NumsOps">-</button>
+                <button class="calcBtn NumsOps">.</button>
+                <button class="calcBtn NumsOps">0</button>
+                <button class="calcBtn isEqualto" id="equalBtn">=</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const resultInput=document.getElementById('calcResultbox');
+// on AC click
+    const clearBtn=document.getElementById('clearBtn');
+    clearBtn.addEventListener('click',()=>{
+    console.log("lets clear everthing dude");
+    resultInput.value="";
+    });
+
+//on DEL click
+    const DelBtn=document.getElementById('deleteBtn');
+    DelBtn.addEventListener('click',()=>{
+    let value=resultInput.value.split("");
+    value.pop();
+    resultInput.value=value.join("");
+    });
+
+//on Equal to button click
+
+    const equalBtn=document.getElementById('equalBtn');
+    equalBtn.addEventListener('click',()=>{
+    resultInput.value=eval(resultInput.value);
+    });
+
+//on any button cilck
+    const numsAndOperators=Array.from(document.     querySelectorAll('.calcBtn.NumsOps'));
+    numsAndOperators.map((num)=>{
+    num.addEventListener('click',()=>{
+    resultInput.value=resultInput.value+num.innerHTML;
+    });
+
+    })
+    
+</script>
+</html>
